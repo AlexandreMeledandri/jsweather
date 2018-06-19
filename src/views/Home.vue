@@ -1,18 +1,35 @@
 <template>
   <div class="home">
-    <img src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div>
+      Meteo du jour
+    </div>  
+    <div>
+      Meteo de la semaine
+      <!-- <hello :varenfant="test" @userClick="method">   -->
+        <todayweather></todayweather>
+        <weather-forecast></weather-forecast>
+    </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
-
+import WeatherForecast from "../components/WeatherForecast";
+import todayweather from '../components/TodayWeather';
 export default {
+  
   name: 'home',
   components: {
-    HelloWorld,
+    WeatherForecast,
+    todayweather
   },
+
+  data() {
+    return {
+    }
+  },
+
+  methods: {
+  }
 };
 </script>
