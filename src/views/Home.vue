@@ -49,7 +49,7 @@ export default {
     },
     mappingWeather(_todayweather){
       let _weather = _todayweather.data.weather[0].description;
-      let _temp = _todayweather.weather.data.main.temp;
+      let _temp = _todayweather.data.main.temp;
       
       if (_temp){
         this.weatherData.temp = _temp;
@@ -70,9 +70,6 @@ export default {
       }
       else if(_weather && _weather ==='rain'){
         this.weatherData.weather = 'rain';       
-      }
-      else{
-
       }
       
 
