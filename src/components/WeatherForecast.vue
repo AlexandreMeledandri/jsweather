@@ -14,35 +14,35 @@ export default {
       <span>
         <p>Lundi</p>
         <p>1°</p>
-        <WeatherIcons icon="sunny"/>
+        <WeatherIcons  icon="sunny"/>
       </span>
     </div>
     <div class="col-md-2">
       <span>
         <p>Mardi</p>
         <p>1°</p>
-        <WeatherIcons/>
+        <WeatherIcons  icon="sunny"/>
       </span>
     </div>
     <div class="col-md-2">
       <span>
         <p>Mercredi</p>
         <p>1°</p>
-        <WeatherIcons/>
+        <WeatherIcons  icon="sunny"/>
       </span>
     </div>
     <div class="col-md-2">
       <span>
         <p>Jeudi</p>
         <p>1°</p>
-        <WeatherIcons/>
+        <WeatherIcons  icon="sunny"/>
       </span>
     </div>
     <div class="col-md-2">
       <span>
         <p>Vendredi</p>
         <p>1°</p>
-        <WeatherIcons/>
+        <WeatherIcons  icon="sunny"/>
       </span>
     </div>
   </div>

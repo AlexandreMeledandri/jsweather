@@ -1,16 +1,26 @@
 <script>
-import WeatherDaySunny from "@/assets/weathericons/wi-day-sunny.svg";
+import WeatherIcons from "@/components/WeatherIcons";
 
 export default {
   name: 'todayweather',
   components: {
-    WeatherDaySunny
+    WeatherIcons
   },
   data(){
-    return {
-      temperature: 20
+    return {}
+  },
+  props: {
+    weather: {
+      type: Object,
+      required: true
     }
-  }
+  },
+
+  mounted() {
+    
+  },
+
+
 };
 </script>
 
@@ -20,10 +30,10 @@ export default {
     <h2>Today</h2>
   </div>
   <div class ="col-md-2 offset-md-4">
-    <WeatherDaySunny/>
+    <WeatherIcons  icon="weather.weather"/>
   </div>
   <div class="col-md-2">
-    <p class="temperature-text text-center">{{temperature}}°</p>
+    <p class="temperature-text text-center">{{weather.temp}}°</p>
   </div>
 </div>
 </template>
