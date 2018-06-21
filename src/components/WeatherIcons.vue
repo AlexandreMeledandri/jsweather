@@ -5,14 +5,15 @@ import WeatherCloudy from "@/assets/weathericons/wi-cloudy.svg";
 import WeatherDayCloudy from "@/assets/weathericons/wi-day-cloudy.svg";
 import WeatherRain from "@/assets/weathericons/wi-rain.svg";
 import WeatherShowers from "@/assets/weathericons/wi-showers.svg";
-import WeatherSrinkle from "@/assets/weathericons/wi-sprinkle.svg";
+import WeatherSprinkle from "@/assets/weathericons/wi-sprinkle.svg";
+
 export default {
   name: 'weather-icons',
   props: {
     icon: {
       type: String,
       required: true
-    }
+    },
   },
 
   components: {
@@ -22,10 +23,8 @@ export default {
     WeatherDayCloudy,
     WeatherRain,
     WeatherShowers,
-    WeatherSprinkle
+    WeatherSprinkle,
   },
-
-
 
 };
 </script>
