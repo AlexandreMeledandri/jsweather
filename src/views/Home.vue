@@ -6,7 +6,8 @@
     <div>
       Meteo de la semaine
       <!-- <hello :varenfant="test" @userClick="method">   -->
-        <todayweather :weather="weatherData"></todayweather>
+        {{weatherData}}
+        <todayweather v-if="weatherData.icon" :icon="weatherData.icon" :temperature="weatherData.temperature"></todayweather>
         <weather-forecast></weather-forecast>
     </div>
   </div>
@@ -16,6 +17,8 @@
 import axios from 'axios';
 import WeatherForecast from "../components/WeatherForecast";
 import todayweather from '../components/TodayWeather';
+import {WEATHER_ICONS} from "@/utils/weather-icons-mapping.js";
+
 export default {
   
   name: 'home',
@@ -30,51 +33,45 @@ export default {
     }
   },
 
-  mounted(){
-    this.fetchWeather();    
+  mounted() {
+    this.fetchWeather();
+    this.fetchForecast();    
   },
 
   methods: {
     fetchWeather(){
       axios
       .get('/data/2.5/weather?q=Cergy,FR&appid=8abce26ea4b823746ee23875249a999b&units=metric') 
-        // 'http://api.openweathermap.org/data/2.5/forecast?id=524901&appid=b1b15e88fa797225412429c1c50c122a1', {})
-      .then((todayweather) => {
-        this.mappingWeather(todayweather);
-        console.log(todayweather);
-      })
+      .then(({data}) => this.mappingWeather(data))
       .catch(function (error) {
         console.log(error);
       });
     },
+    fetchForecast(){
+      axios
+      .get('/data/2.5/forecast?q=Cergy,FR&appid=8abce26ea4b823746ee23875249a999b&units=metric') 
+      .then(({data}) => this.mappingForecast(data))
+      .catch(function (error) {
+        console.log(error);
+      });
+    },
+
     mappingWeather(_todayweather){
-      let _weather = _todayweather.data.weather[0].description;
-      let _temp = _todayweather.data.main.temp;
-      
-      if (_temp){
-        this.weatherData.temp = _temp;
-      }
-      
-      if( _weather && (_weather ==='few clouds'|| _weather === 'scattered clouds')){
-        this.weatherData.weather = 'sunny_cloudy';
-      }
+      const icon = WEATHER_ICONS[_todayweather.weather[0].description] || '';
+      const temperature = Math.floor(_todayweather.main.temp) || "";
 
-      else if(_weather && _weather ==='clear sky'){
-        this.weatherData.weather = 'sunny';
-      }
-      else if(_weather && _weather ==='thunderstorm'){
-        this.weatherData.weather = 'storm_shower';        
-      }
-      else if(_weather && _weather ==='shower rain'){
-        this.weatherData.weather = 'showers';        
-      }
-      else if(_weather && _weather ==='rain'){
-        this.weatherData.weather = 'rain';       
-      }
-      
-
+      this.weatherData = {
+        icon,
+        temperature
+      };
+    },
+    mappingForecast(_forecastweather){
+     /*  const icon = WEATHER_ICONS_todayweather.list[0].weather[0].description || ''; */
+      let array = _forecastweather.list.map(value => {
+        console.log(value);
+        
+      });
     }
-  },
-
+  }
 };
 </script>

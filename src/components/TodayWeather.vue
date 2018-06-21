@@ -10,16 +10,22 @@ export default {
     return {}
   },
   props: {
-    weather: {
+    icon: {
+      type: String,
+      require: true
+    },
+
+    temperature: {
+      type: Number,
+      require: true
+    }
+
+
+    /*weather: {
       type: Object,
       required: true
-    }
-  },
-
-  mounted() {
-    
-  },
-
+    }*/
+  }
 
 };
 </script>
@@ -30,10 +36,10 @@ export default {
     <h2>Today</h2>
   </div>
   <div class ="col-md-2 offset-md-4">
-    <WeatherIcons  icon="weather.weather"/>
+    <WeatherIcons :icon="icon"/>
   </div>
   <div class="col-md-2">
-    <p class="temperature-text text-center">{{weather.temp}}°</p>
+    <p class="temperature-text text-center">{{temperature}}°</p>
   </div>
 </div>
 </template>
