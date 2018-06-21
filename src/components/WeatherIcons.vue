@@ -5,13 +5,15 @@ import WeatherCloudy from "@/assets/weathericons/wi-cloudy.svg";
 import WeatherDayCloudy from "@/assets/weathericons/wi-day-cloudy.svg";
 import WeatherRain from "@/assets/weathericons/wi-rain.svg";
 import WeatherShowers from "@/assets/weathericons/wi-showers.svg";
+import WeatherSprinkle from "@/assets/weathericons/wi-sprinkle.svg";
+
 export default {
   name: 'weather-icons',
   props: {
     icon: {
       type: String,
       required: true
-    }
+    },
   },
 
   components: {
@@ -20,10 +22,9 @@ export default {
     WeatherCloudy,
     WeatherDayCloudy,
     WeatherRain,
-    WeatherShowers
+    WeatherShowers,
+    WeatherSprinkle,
   },
-
-
 
 };
 </script>
@@ -35,5 +36,6 @@ export default {
     <weather-showers v-show="icon === 'showers'"/>
     <weather-day-cloudy v-show="icon === 'sunny_cloudy'"/>
     <weather-rain v-show="icon === 'rain'" />
+    <weather-sprinkle v-show="icon === 'sprinkle'" />
     </div>
 </template>
