@@ -57,7 +57,7 @@ export default {
     },
 
     mappingWeather(_todayweather){
-      const icon = WEATHER_ICONS[_todayweather.weather[0].description] || '';
+      const icon = WEATHER_ICONS[_todayweather.weather[0].main] || '';
       const temperature = Math.floor(_todayweather.main.temp) || "";
 
       this.weatherData = {
