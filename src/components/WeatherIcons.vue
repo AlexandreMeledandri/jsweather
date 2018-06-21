@@ -21,7 +21,7 @@ export default {
     WeatherCloudy,
     WeatherDayCloudy,
     WeatherRain,
-    WeatherShowers
+    WeatherShowers,
     WeatherSprinkle
   },
 
