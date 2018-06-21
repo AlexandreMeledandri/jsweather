@@ -59,7 +59,7 @@ export default {
     mappingWeather(_todayweather){
       console.log(_todayweather);
       const icon = WEATHER_ICONS[_todayweather.weather[0].main] || '';
-      const temperature = Math.floor(_todayweather.main.temp) || "";
+      const temperature = Math.round(_todayweather.main.temp) || "";
 
       this.weatherData = {
         icon,
@@ -69,11 +69,12 @@ export default {
     mappingForecast(_forecastweather){
      /*  const icon = WEATHER_ICONS_todayweather.list[0].weather[0].description || ''; */
       let array = _forecastweather.list.filter(value => {
-         return value
+         return RegExp('12:00').test(value.dt_txt) 
         })
-        .map(value => {
-        
-      });
+        .map(value =>{
+          return {icon: value.weather[0].main,temperature: Math.round(value.main.temp)};
+        });
+        console.log(array);
     }
   }
 };
