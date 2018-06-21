@@ -6,6 +6,7 @@ import WeatherDayCloudy from "@/assets/weathericons/wi-day-cloudy.svg";
 import WeatherRain from "@/assets/weathericons/wi-rain.svg";
 import WeatherShowers from "@/assets/weathericons/wi-showers.svg";
 import WeatherSprinkle from "@/assets/weathericons/wi-sprinkle.svg";
+import WeatherCloud from "@/assets/weathericons/wi-cloud.svg";
 
 export default {
   name: 'weather-icons',
@@ -24,6 +25,7 @@ export default {
     WeatherRain,
     WeatherShowers,
     WeatherSprinkle,
+    WeatherCloud,
   },
 
 };

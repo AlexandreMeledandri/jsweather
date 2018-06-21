@@ -5,6 +5,7 @@ export const WEATHER_ICONS = {
     'clear sky': 'sunny',
     'thunderstorm' : 'storm_shower',
     'shower rain' : 'showers',
-    'rain' : 'rain',
-    'drizzle' : 'sprinkle'
+    'Rain' : 'rain',
+    'drizzle' : 'sprinkle',
+    'Clouds' : 'cloudy',
 }
