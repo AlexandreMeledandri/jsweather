@@ -19,12 +19,6 @@ export default {
       type: Number,
       require: true
     }
-
-
-    /*weather: {
-      type: Object,
-      required: true
-    }*/
   }
 
 };
