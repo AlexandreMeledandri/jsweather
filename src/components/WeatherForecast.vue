@@ -5,44 +5,29 @@ export default {
   name: 'weather-forecast', 
   components: {
     WeatherIcons
+  },
+  props: {
+    forecasts: {
+      type: Array,
+      require: true
+    }
+  },
+  updated(){
+    console.log(this.forecasts);
   }
 };
 </script>
 <template>
   <div class="row">
-    <div class="col-md-2 offset-md-1">
+    <div class="col-md-12">
+    <h1>Weekly Forecast</h1>
+  </div>
+    <div class="col-md-1"></div>
+    <div v-for="forecast in forecasts" class="col-md-2">
       <span>
-        <p>Lundi</p>
-        <p>1°</p>
-        <WeatherIcons  icon="sunny"/>
-      </span>
-    </div>
-    <div class="col-md-2">
-      <span>
-        <p>Mardi</p>
-        <p>1°</p>
-        <WeatherIcons  icon="sunny"/>
-      </span>
-    </div>
-    <div class="col-md-2">
-      <span>
-        <p>Mercredi</p>
-        <p>1°</p>
-        <WeatherIcons  icon="sunny"/>
-      </span>
-    </div>
-    <div class="col-md-2">
-      <span>
-        <p>Jeudi</p>
-        <p>1°</p>
-        <WeatherIcons  icon="sunny"/>
-      </span>
-    </div>
-    <div class="col-md-2">
-      <span>
-        <p>Vendredi</p>
-        <p>1°</p>
-        <WeatherIcons  icon="sunny"/>
+        <p>{{forecast.day}}</p>
+        <p>{{forecast.temperature}}</p>
+        <WeatherIcons :icon="forecast.icon"/>
       </span>
     </div>
   </div>

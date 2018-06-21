@@ -20,14 +20,13 @@ export default {
       require: true
     }
   }
-
 };
 </script>
 
 <template>
 <div class="row align-items-center">
   <div class="col-md-12">
-    <h2>Today</h2>
+    <h1>Today Weather</h1>
   </div>
   <div class ="col-md-2 offset-md-4">
     <WeatherIcons :icon="icon"/>
