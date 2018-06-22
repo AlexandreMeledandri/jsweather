@@ -14,6 +14,7 @@
         <todayweather v-if="weatherData.icon" :icon="weatherData.icon" :temperature="weatherData.temperature"></todayweather>
         <weather-forecast v-if="forecastData" :forecasts="forecastData"></weather-forecast>
     </div>
+    <p>{{cities}}}</p>
   </div>
 </template>
 
@@ -22,6 +23,7 @@ import axios from 'axios';
 import WeatherForecast from "../components/WeatherForecast";
 import todayweather from '../components/TodayWeather';
 import {WEATHER_ICONS} from "@/utils/weather-icons-mapping.js";
+import {CITIES} from "@/utils/cities_reduced.js";
 import bFormInput from 'bootstrap-vue/es/components/form-input/form-input';
 import bForm from 'bootstrap-vue/es/components/form/form';
 import bButton from 'bootstrap-vue/es/components/button/button';
@@ -42,13 +44,15 @@ export default {
     return {
       weatherData: {},
       forecastData: [],
-      searchInput: ''
+      searchInput: '',
+      cities: ''
     }
   },
 
   mounted() {
     this.fetchWeather();
-    this.fetchForecast();    
+    this.fetchForecast(); 
+    console.log(CITIES);   
   },
 
   methods: {
@@ -96,6 +100,10 @@ export default {
             };
         })
         this.forecastData = array;
+    },
+    mappingCities(){
+    CITIES.filter(value => {
+    })
     }
   }
 };
