@@ -52,17 +52,17 @@ export default {
   },
 
   methods: {
-    fetchWeather(location = 'Cergy'){
+    fetchWeather(location = 'Cergy,FR'){
       axios
-      .get('/data/2.5/weather?q='+location+',FR&appid=8abce26ea4b823746ee23875249a999b&units=metric') 
+      .get('/data/2.5/weather?q='+location+'&appid=8abce26ea4b823746ee23875249a999b&units=metric') 
       .then(({data}) => this.mappingWeather(data))
       .catch(function (error) {
         console.log(error);
       });
     },
-    fetchForecast(location = 'Cergy'){
+    fetchForecast(location = 'Cergy,FR'){
       axios
-      .get('/data/2.5/forecast?q='+location+',FR&appid=8abce26ea4b823746ee23875249a999b&units=metric') 
+      .get('/data/2.5/forecast?q='+location+'&appid=8abce26ea4b823746ee23875249a999b&units=metric') 
       .then(({data}) => this.mappingForecast(data))
       .catch(function (error) {
         console.log(error);
@@ -70,8 +70,8 @@ export default {
     },
     onSubmit(event){
       event.preventDefault();
-      console.log('test', event);
-      console.log(this.searchInput);
+      this.fetchWeather(this.searchInput);
+      this.fetchForecast(this.searchInput);
     },
     mappingWeather(_todayweather){
       const icon = WEATHER_ICONS[_todayweather.weather[0].main] || '';

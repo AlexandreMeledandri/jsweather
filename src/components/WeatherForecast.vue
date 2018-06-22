@@ -12,9 +12,6 @@ export default {
       require: true
     }
   },
-  updated(){
-    console.log(this.forecasts);
-  }
 };
 </script>
 <template>
